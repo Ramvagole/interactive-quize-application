@@ -18,7 +18,6 @@
         const [marks,scored]=React.useState("")
         let b={display:"flex",gap:"15px",flexDirection:"column",margin:"25px"}
         function ans(e){
-            
             let b=e.target.value
             console.log(b)
             setVal([...val,b])
@@ -49,28 +48,28 @@
             <div>
                 <p>1) What is the sum of 4+5 ?</p>
                 <div style={b}>
-                    <div><input className="check first" type="checkbox" value="9" onClick={(e)=>{ans(e)}}/> <span>9</span></div>
-                    <div><input className="check first" type="checkbox" value="5" onClick={(e)=>{ans(e)}}/> <span>5</span></div>
-                    <div><input className="check first" type="checkbox" value="6" onClick={(e)=>{ans(e)}}/> <span>6</span></div>
-                    <div><input className="check first" type="checkbox" value="7" onClick={(e)=>{ans(e)}}/> <span>7</span></div>
+                    <div><input className="check first" type="radio" value="9" onClick={(e)=>{ans(e)}} name="1"/> <span>9</span></div>
+                    <div><input className="check first" type="radio" value="5" onClick={(e)=>{ans(e)}} name="1"/> <span>5</span></div>
+                    <div><input className="check first" type="radio" value="6" onClick={(e)=>{ans(e)}} name="1"/> <span>6</span></div>
+                    <div><input className="check first" type="radio" value="7" onClick={(e)=>{ans(e)}} name="1"/> <span>7</span></div>
                 </div>
             </div>
             <div>
                 <p>2) What is the multiplication of 4*5 ?</p>
                 <div style={b}>
-                    <div><input className="check" type="checkbox" value="21" onClick={(e)=>{ans(e)}}/> <span>21</span></div>
-                    <div><input className="check" type="checkbox" value="20" onClick={(e)=>{ans(e)}}/> <span>20</span></div>
-                    <div><input className="check" type="checkbox" value="22" onClick={(e)=>{ans(e)}}/> <span>22</span></div>
-                    <div><input className="check" type="checkbox" value="30" onClick={(e)=>{ans(e)}}/> <span>30</span></div>
+                    <div><input className="check" type="radio" value="21" onClick={(e)=>{ans(e)}} name="2"/> <span>21</span></div>
+                    <div><input className="check" type="radio" value="20" onClick={(e)=>{ans(e)}} name="2"/> <span>20</span></div>
+                    <div><input className="check" type="radio" value="22" onClick={(e)=>{ans(e)}} name="2"/> <span>22</span></div>
+                    <div><input className="check" type="radio" value="30" onClick={(e)=>{ans(e)}} name="2"/> <span>30</span></div>
                 </div>
             </div>
             <div>
                 <p>3) What is the sub of 4-5 ?</p>
                 <div style={b}>
-                    <div><input className="check" type="checkbox" value="2" onClick={(e)=>{ans(e)}}/> <span>2</span></div>
-                    <div><input className="check" type="checkbox" value="3" onClick={(e)=>{ans(e)}}/> <span>3</span></div>
-                    <div><input className="check" type="checkbox" value="0" onClick={(e)=>{ans(e)}}/> <span>0</span></div>
-                    <div><input className="check" type="checkbox" value="1" onClick={(e)=>{ans(e)}}/> <span>1</span></div>
+                    <div><input className="check" type="radio" value="2" onClick={(e)=>{ans(e)}} name="3"/> <span>2</span></div>
+                    <div><input className="check" type="radio" value="3" onClick={(e)=>{ans(e)}} name="3"/> <span>3</span></div>
+                    <div><input className="check" type="radio" value="0" onClick={(e)=>{ans(e)}} name="3"/> <span>0</span></div>
+                    <div><input className="check" type="radio" value="1" onClick={(e)=>{ans(e)}} name="3"/> <span>1</span></div>
                 </div>
             </div>
             <button onClick={()=>{scor()}}>Submit</button>
