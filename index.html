@@ -14,23 +14,26 @@
   <script type="text/babel">
     // Your  code will go here
     function App(){
-        const [val,setVal]=React.useState([])
+        let t=[{question:"What is the sum of 4+5 ?",answer:[9,5,6,7],name:1},{question:"What is the multiplication of 4*5 ?",answer:[21,20,22,30],name:2},{question:"What is the sub of 4-5 ?",answer:[2,3,0,1],name:3}]
+        const [val,setVal]=React.useState({})
         const [marks,scored]=React.useState("")
         let b={display:"flex",gap:"15px",flexDirection:"column",margin:"25px"}
         function ans(e){
-            let b=e.target.value
-            console.log(b)
-            setVal([...val,b])
+            let name=e.target.name
+            let value=e.target.value
+            console.log(name,value)
+            setVal({...val,[name]:value})
         }
         function scor(){
-            let b=val.filter((v)=>{
+            let c=Object.values(val)
+            let b=c.filter((v)=>{
                 return ((v==9)||(v==20)||(v==1))
             })
             let marksObt=b.length * 2
             scored(marksObt)
         }
         function reset(){
-            setVal([])
+            setVal({})
             scored("")
             console.log(val)
             console.log(marks)
@@ -44,34 +47,20 @@
         }
         return(
             <>
-            
-            <div>
-                <p>1) What is the sum of 4+5 ?</p>
-                <div style={b}>
-                    <div><input className="check first" type="radio" value="9" onClick={(e)=>{ans(e)}} name="1"/> <span>9</span></div>
-                    <div><input className="check first" type="radio" value="5" onClick={(e)=>{ans(e)}} name="1"/> <span>5</span></div>
-                    <div><input className="check first" type="radio" value="6" onClick={(e)=>{ans(e)}} name="1"/> <span>6</span></div>
-                    <div><input className="check first" type="radio" value="7" onClick={(e)=>{ans(e)}} name="1"/> <span>7</span></div>
-                </div>
-            </div>
-            <div>
-                <p>2) What is the multiplication of 4*5 ?</p>
-                <div style={b}>
-                    <div><input className="check" type="radio" value="21" onClick={(e)=>{ans(e)}} name="2"/> <span>21</span></div>
-                    <div><input className="check" type="radio" value="20" onClick={(e)=>{ans(e)}} name="2"/> <span>20</span></div>
-                    <div><input className="check" type="radio" value="22" onClick={(e)=>{ans(e)}} name="2"/> <span>22</span></div>
-                    <div><input className="check" type="radio" value="30" onClick={(e)=>{ans(e)}} name="2"/> <span>30</span></div>
-                </div>
-            </div>
-            <div>
-                <p>3) What is the sub of 4-5 ?</p>
-                <div style={b}>
-                    <div><input className="check" type="radio" value="2" onClick={(e)=>{ans(e)}} name="3"/> <span>2</span></div>
-                    <div><input className="check" type="radio" value="3" onClick={(e)=>{ans(e)}} name="3"/> <span>3</span></div>
-                    <div><input className="check" type="radio" value="0" onClick={(e)=>{ans(e)}} name="3"/> <span>0</span></div>
-                    <div><input className="check" type="radio" value="1" onClick={(e)=>{ans(e)}} name="3"/> <span>1</span></div>
-                </div>
-            </div>
+            {
+                t.map((v)=>{
+                    return(
+                        <div>
+                            <p>{v.question}</p>
+                            <div style={b}>
+                                {
+                                    v.answer.map((s)=>{ return <div><input className="check first" type="radio" value="9" onClick={(e)=>{ans(e)}} name={v.name}/> <span>{s}</span></div>})
+                                }
+                            </div>
+                        </div>
+                    )
+                })
+            }
             <button onClick={()=>{scor()}}>Submit</button>
             <button onClick={()=>{reset()}}>Reset</button>
             <h2>Score:{marks}/6</h2>
